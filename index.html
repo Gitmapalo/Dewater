@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dewatering Systems | Open Pit Mining Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: float 20s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(50px, -50px) scale(1.1); }
+            66% { transform: translate(-50px, 50px) scale(0.9); }
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+        }
+        
+        .section-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        .section-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .nav-blur {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.7);
+        }
+        
+        .hero-pattern {
+            background-image: url('images/hero.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .method-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+
+        .benefit-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover .benefit-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .challenge-bar {
+            transition: width 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            width: 0;
+        }
+
+        .challenge-bar.animate {
+            width: var(--target-width);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .slide-in {
+            animation: slideIn 0.6s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="smooth-scroll bg-gray-50">
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 nav-blur border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-gray-800"><a href="#home">Dewater</a></div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-12">
+                    <a href="#methods" class="text-gray-700 hover:text-purple-600 transition">Methods</a>
+                    <a href="#benefits" class="text-gray-700 hover:text-purple-600 transition">Benefits</a>
+                    <a href="#challenges" class="text-gray-700 hover:text-purple-600 transition">Challenges</a>
+                    <a href="#contact" class="text-gray-700 hover:text-purple-600 transition">Contact</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button id="hamburger" class="md:hidden text-gray-700 focus:outline-none" onclick="toggleMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden flex-col space-y-4 mt-4 pb-4">
+                <a href="#methods" class="text-gray-700 hover:text-purple-600 transition" onclick="toggleMenu()">Methods</a>
+                <a href="#benefits" class="text-gray-700 hover:text-purple-600 transition" onclick="toggleMenu()">Benefits</a>
+                <a href="#challenges" class="text-gray-700 hover:text-purple-600 transition" onclick="toggleMenu()">Challenges</a>
+                <a href="#contact" class="text-gray-700 hover:text-purple-600 transition" onclick="toggleMenu()">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home"  class="relative min-h-screen flex items-center justify-center overflow-hidden hero-pattern">
+
+        <div class="relative z-10 max-w-6xl mx-auto px-6 py-32 text-center">
+            <div class="mb-6 inline-block px-4 py-2 bg-purple-100 rounded-full text-gray-800 text-sm font-medium">
+                Mining Water Management
+            </div>
+            <h1 class="text-6xl md:text-7xl font-bold text-white mb-8 leading-tight">
+                Master the flow.<br/>
+                <span class="gradient-text">Control the site.</span>
+            </h1>
+            <p class="text-xl text-white font-light mb-12 max-w-3xl mx-auto leading-relaxed">
+                Advanced dewatering solutions for open pit mining operations. Maintain dry, stable, and productive working conditions through intelligent water management.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#methods" class="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-medium hover:shadow-xl transition transform hover:scale-105">
+                    Explore Methods
+                </a>
+                <a href="#contact" class="px-8 py-4 bg-white text-gray-800 rounded-full font-medium hover:shadow-xl transition border border-gray-200">
+                    Get Started
+                </a>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24" id="stats-section">
+                <div class="text-center">
+                    <div class="text-4xl font-bold gradient-text mb-2 counter" data-target="98">0%</div>
+                    <div class="text-white font-medium">Efficiency Rate</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold gradient-text mb-2 counter" data-target="24">0/7</div>
+                    <div class="text-white font-medium">Operation Time</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold gradient-text mb-2 counter" data-target="-40">0%</div>
+                    <div class="text-white font-medium">Equipment Damage</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold gradient-text mb-2 counter" data-target="100">0+</div>
+                    <div class="text-white font-medium">Sites Managed</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methods Section -->
+    <section id="methods" class="py-32 bg-white section-reveal">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl font-bold text-gray-900 mb-6">Dewatering Methods</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Three core approaches to manage water effectively in open pit operations
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-12">
+                <!-- Pumping Systems -->
+                <div class="method-card rounded-3xl p-10 card-hover">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Pumping Systems</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        High-capacity submersible and surface pumps designed for continuous water removal from active mining zones.
+                    </p>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-purple-500 mr-3">•</span>
+                            <span>Submersible deep well systems</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-500 mr-3">•</span>
+                            <span>Surface centrifugal pumps</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-500 mr-3">•</span>
+                            <span>Well point arrays</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-500 mr-3">•</span>
+                            <span>Automated control systems</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Drainage Channels -->
+                <div class="method-card rounded-3xl p-10 card-hover" style="animation-delay: 0.1s;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Drainage Channels</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Engineered surface drainage networks that redirect water flow away from critical operational areas.
+                    </p>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-3">•</span>
+                            <span>Perimeter ditch systems</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-3">•</span>
+                            <span>Collection sumps & basins</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-3">•</span>
+                            <span>Cascade channel design</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-3">•</span>
+                            <span>Sediment control features</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Groundwater Control -->
+                <div class="method-card rounded-3xl p-10 card-hover" style="animation-delay: 0.2s;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Groundwater Control</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Subsurface intervention techniques to manage aquifer levels and prevent water ingress into the pit.
+                    </p>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-indigo-500 mr-3">•</span>
+                            <span>Deep well dewatering</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-indigo-500 mr-3">•</span>
+                            <span>Pressure relief systems</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-indigo-500 mr-3">•</span>
+                            <span>Cutoff wall barriers</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-indigo-500 mr-3">•</span>
+                            <span>Recharge & injection wells</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-32 bg-gradient-to-br from-gray-50 to-purple-50 section-reveal">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl font-bold text-gray-900 mb-6">Why Dewatering Matters</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Strategic water management delivers measurable improvements across all operational metrics
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Safety -->
+                <div class="benefit-card bg-white rounded-3xl p-10 card-hover">
+                    <div class="benefit-icon w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Enhanced Safety</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Eliminate slip hazards, prevent slope failures, and maintain stable ground conditions for personnel and equipment movement.
+                    </p>
+                    <div class="text-green-600 font-medium">67% reduction in water-related incidents</div>
+                </div>
+
+                <!-- Productivity -->
+                <div class="benefit-card bg-white rounded-3xl p-10 card-hover">
+                    <div class="benefit-icon w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Increased Productivity</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Enable continuous operations without weather-related delays. Maximize equipment utilization and maintain optimal extraction rates.
+                    </p>
+                    <div class="text-blue-600 font-medium">23% improvement in operational uptime</div>
+                </div>
+
+                <!-- Equipment -->
+                <div class="benefit-card bg-white rounded-3xl p-10 card-hover">
+                    <div class="benefit-icon w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Equipment Protection</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Reduce corrosion, mechanical wear, and hydraulic system contamination. Extend machinery lifespan and decrease maintenance costs.
+                    </p>
+                    <div class="text-purple-600 font-medium">40% reduction in equipment damage</div>
+                </div>
+
+                <!-- Environmental -->
+                <div class="benefit-card bg-white rounded-3xl p-10 card-hover">
+                    <div class="benefit-icon w-14 h-14 bg-teal-100 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Environmental Stewardship</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Control discharge quality, protect local ecosystems, and maintain compliance with environmental regulations through proper water treatment.
+                    </p>
+                    <div class="text-teal-600 font-medium">100% regulatory compliance rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenges Section -->
+    <section id="challenges" class="py-32 bg-white section-reveal">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl font-bold text-gray-900 mb-6">Operational Challenges</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Understanding the complexities of mine water management
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <div class="challenge-item">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-lg font-semibold text-gray-900">Water Volume Management</h4>
+                            <span class="text-sm text-gray-500">Critical</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                            <div class="challenge-bar h-full bg-gradient-to-r from-red-500 to-orange-500 rounded-full" style="--target-width: 85%"></div>
+                        </div>
+                        <p class="text-gray-600 mt-2 text-sm">Handling variable inflow rates during seasonal changes and extreme weather events</p>
+                    </div>
+
+                    <div class="challenge-item">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-lg font-semibold text-gray-900">Geological Complexity</h4>
+                            <span class="text-sm text-gray-500">High</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                            <div class="challenge-bar h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" style="--target-width: 78%"></div>
+                        </div>
+                        <p class="text-gray-600 mt-2 text-sm">Adapting to varying soil permeability and fractured rock formations</p>
+                    </div>
+
+                    <div class="challenge-item">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-lg font-semibold text-gray-900">Environmental Compliance</h4>
+                            <span class="text-sm text-gray-500">High</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                            <div class="challenge-bar h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full" style="--target-width: 72%"></div>
+                        </div>
+                        <p class="text-gray-600 mt-2 text-sm">Meeting discharge standards while protecting local water tables and ecosystems</p>
+                    </div>
+
+                    <div class="challenge-item">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-lg font-semibold text-gray-900">Cost Management</h4>
+                            <span class="text-sm text-gray-500">Medium</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                            <div class="challenge-bar h-full bg-gradient-to-r from-green-500 to-emerald-500 rounded-full" style="--target-width: 65%"></div>
+                        </div>
+                        <p class="text-gray-600 mt-2 text-sm">Balancing operational expenses with long-term infrastructure investment</p>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-purple-100 to-blue-100 rounded-3xl p-12">
+                    <h3 class="text-3xl font-bold text-gray-900 mb-6">Our Approach</h3>
+                    <p class="text-gray-700 leading-relaxed mb-8">
+                        We address these challenges through integrated planning, real-time monitoring systems, and adaptive management strategies that respond to changing site conditions.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-purple-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700">Predictive modeling for seasonal variations</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-purple-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700">24/7 automated monitoring and alerts</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-purple-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700">Water treatment and recycling systems</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-purple-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700">Cost-optimized equipment selection</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="relative py-32 section-reveal">
+        <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop>
+            <source src="../dasboard/drain.webm" type="video/webm">
+        </video>
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-5xl font-bold text-white mb-6">Ready to optimize your site?</h2>
+            <p class="text-xl text-purple-100 mb-12 max-w-2xl mx-auto">
+                Let's discuss how our dewatering solutions can improve safety, productivity, and environmental performance at your operation.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="mailto:info@dewatering.com" class="px-10 py-5 bg-white text-purple-600 rounded-full font-semibold hover:shadow-2xl transition transform hover:scale-105">
+                    Contact Our Team
+                </a>
+                <a href="#" class="px-10 py-5 bg-transparent border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-purple-600 transition">
+                    Download Resources
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="text-2xl font-bold text-white mb-4">Dewater</div>
+                    <p class="text-gray-400 leading-relaxed">
+                        Advanced water management solutions for open pit mining operations worldwide.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Solutions</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#methods" class="hover:text-white transition">Pumping Systems</a></li>
+                        <li><a href="#methods" class="hover:text-white transition">Drainage Channels</a></li>
+                        <li><a href="#methods" class="hover:text-white transition">Groundwater Control</a></li>
+                        <li><a href="#benefits" class="hover:text-white transition">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition">Technical Guides</a></li>
+                        <li><a href="#" class="hover:text-white transition">White Papers</a></li>
+                        <li><a href="#challenges" class="hover:text-white transition">Best Practices</a></li>
+                        <li><a href="#" class="hover:text-white transition">Industry Standards</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Connect</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#contact" class="hover:text-white transition">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white transition">Support</a></li>
+                        <li><a href="#" class="hover:text-white transition">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition">Partners</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm">&copy; 2025 Dewater Solutions. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms of Service</a>
+                    <a href="#" class="hover:text-white transition">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Counter animation function
+        function animateCounter(element, target, duration = 2000) {
+            const start = 0;
+            const end = parseInt(target);
+            const startTime = performance.now();
+
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                // Easing function for smooth animation
+                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                const current = Math.floor(start + (end - start) * easeOutQuart);
+
+                if (target.includes('%')) {
+                    element.textContent = current + '%';
+                } else if (target.includes('/')) {
+                    element.textContent = current + '/7';
+                } else if (target.includes('+')) {
+                    element.textContent = current + '+';
+                } else {
+                    element.textContent = current;
+                }
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+
+            requestAnimationFrame(update);
+        }
+
+        // Counter animation observer
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.counter');
+                    counters.forEach((counter, index) => {
+                        const target = counter.getAttribute('data-target');
+                        setTimeout(() => {
+                            animateCounter(counter, target);
+                        }, index * 200);
+                    });
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.getElementById('stats-section');
+        if (statsSection) {
+            counterObserver.observe(statsSection);
+        }
+
+        // Smooth scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section-reveal').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Animate benefit cards on scroll
+        const benefitObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 150);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.benefit-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)';
+            benefitObserver.observe(card);
+        });
+
+        // Animate method cards on scroll
+        const methodObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0) scale(1)';
+                    }, index * 200);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.method-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(50px) scale(0.95)';
+            card.style.transition = 'all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)';
+            methodObserver.observe(card);
+        });
+
+        // Animate challenge bars when in view
+        const challengeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bars = entry.target.querySelectorAll('.challenge-bar');
+                    bars.forEach((bar, index) => {
+                        setTimeout(() => {
+                            bar.classList.add('animate');
+                        }, index * 200);
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const challengesSection = document.getElementById('challenges');
+        if (challengesSection) {
+            challengeObserver.observe(challengesSection);
+        }
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburger = document.getElementById('hamburger');
+
+            if (mobileMenu) {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                if (isHidden) {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.classList.add('absolute', 'top-full', 'left-0', 'right-0', 'bg-white', 'p-6', 'shadow-lg');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('absolute', 'top-full', 'left-0', 'right-0', 'bg-white', 'p-6', 'shadow-lg');
+                }
+            }
+
+            // Toggle hamburger to X
+            if (hamburger) {
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                hamburger.innerHTML = isOpen ?
+                    `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>` :
+                    `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>`;
+            }
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add parallax effect to hero blobs
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const blobs = document.querySelectorAll('.blob');
+            blobs.forEach((blob, index) => {
+                const speed = 0.5 + (index * 0.1);
+                blob.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.7)';
+            }
+        });
+    </script>
+</body>
+</html>
